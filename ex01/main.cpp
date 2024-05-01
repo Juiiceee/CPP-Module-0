@@ -8,9 +8,6 @@ int main()
 {
 	Contact cont;
 	PhoneBook phone;
-	
-	phone.
-	/*int value = 15;
-	cin >> value;
-	cout << value;*/
+
+	phone.lob();
 }

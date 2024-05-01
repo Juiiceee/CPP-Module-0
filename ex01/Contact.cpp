@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:58:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/04/26 16:01:31 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/01 17:48:13 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,14 @@ std::string	Contact::getinputnum()
 	return (input);
 }
 
-int	Contact::setindex()
+void	Contact::setindex(int i)
 {
-	static int	i = 0;
-
-	return (i++ % 8);
+	this->index = i;
 }
 
 
 void	Contact::setall()
 {
-	this->index = this->setindex();
 	this->prenom = this->getinput();
 	this->nomDeFamille = this->getinput();
 	this->surnom = this->getinput();
