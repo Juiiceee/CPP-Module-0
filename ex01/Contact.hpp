@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:04:55 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/06 12:25:36 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/07 16:21:02 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define Darkblack "\033[2;30m"
 
 # include <iostream>
-
+# include <iomanip>
 
 class Contact
 {
@@ -36,6 +36,10 @@ class Contact
 		std::string		getinput();
 		std::string		getinputnum();
 		void			setindex(int i);
+		std::string		printdot(std::string str);
+		void			print();
+		void			printindex();
+
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:58:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/06 12:36:12 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/07 16:22:18 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,29 @@ void	Contact::setall()
 	this->numero = this->getinputnum();
 	std::cout << "veuillez mettre son son secret le plus " << Darkblack << "darky" << resetcolor << " :\n";
 	this->dark = this->getinput();
+}
+
+std::string	Contact::printdot(std::string str)
+{
+	if (str.length() > 9)
+		return (str.substr(0, 9) + ".");
+	return (str);
+}
+
+void	Contact::print(void)
+{
+	std::cout << "|" << std::setw(10) << this->index;
+	std::cout << "|" << std::setw(10) << this->printdot(this->prenom);
+	std::cout << "|" << std::setw(10) << this->printdot(this->nomDeFamille);
+	std::cout << "|" << std::setw(10) << this->printdot(this->surnom) << "|" << std::endl;
+}
+
+void	Contact::printindex()
+{
+	std::cout << "Index: " << this->index << std::endl;
+	std::cout << "Prenom: " << this->prenom << std::endl;
+	std::cout << "NomDeFamille: " << this->nomDeFamille << std::endl;
+	std::cout << "Surnom" << this->surnom << std::endl;
+	std::cout << "Numero: " << this->index << std::endl;
+	std::cout << "Secret trop dark: " << this->prenom << std::endl;
 }
