@@ -1,5 +1,15 @@
 #include "PhoneBook.hpp"
 
+PhoneBook::PhoneBook()
+{
+
+}
+
+PhoneBook::~PhoneBook()
+{
+	
+}
+
 int	ft_stoi(std::string str)
 {
 	int i = 0;
@@ -30,8 +40,8 @@ int	PhoneBook::setcontact(void)
 {
 	static int	i = 0;
 
-	this->repertoire[i % 8].setall();
-	this->repertoire[i % 8].setindex(i % 8);
+	this->_repertoire[i % 8].setall();
+	this->_repertoire[i % 8].setindex(i % 8);
 	return (++i);
 }
 
@@ -49,7 +59,7 @@ void	PhoneBook::tab(int i)
 	std::cout << "|" << std::setw(10) << "Nickname" << "|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	for (int j = 0; j < i; j++)
-		this->repertoire[j].print();
+		this->_repertoire[j].print();
 	std::cout << "Veuillez renseigner l'index que vous voulez afficher ou si vous voulez retourner au debut tapez \"-\" :\n";
 	std::getline(std::cin, str);
 	if (std::cin.eof())
@@ -62,5 +72,5 @@ void	PhoneBook::tab(int i)
 		std::cerr << "Il faut renseigner un nombre qui existe/qui existe dans la liste\n";
 		return ;
 	}
-	this->repertoire[num].printindex();
+	this->_repertoire[num].printindex();
 }

@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:04:55 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/08 17:10:44 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/08 17:44:51 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class Contact
 		std::string		_numero;
 		std::string		_dark;
 	public:
+		Contact();
+		~Contact();
 		void			setall(void);
 		std::string		getinput(void);
 		std::string		getinputnum(void);
