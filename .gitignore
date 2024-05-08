@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 oui
+test.cpp
+annuaire
+.vscode
 # Compiled Object files
 *.slo
 *.lo
