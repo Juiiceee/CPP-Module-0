@@ -6,15 +6,13 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:58:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/07 16:22:18 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/08 13:40:54 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <cctype>
-#include <algorithm>
 
-std::string	Contact::getinput()
+std::string	Contact::getinput(void)
 {
 	std::string input;
 	do
@@ -27,11 +25,11 @@ std::string	Contact::getinput()
 	return (input);
 }
 
-std::string	Contact::getinputnum()
+std::string	Contact::getinputnum(void)
 {
 	std::string	input;
 	int			i = 0;
-	bool		isdigit = true;
+	bool		isdigit;
 
 	do
 	{
@@ -39,11 +37,6 @@ std::string	Contact::getinputnum()
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 			return (std::cin.clear(), "");
-		if (input.length() != 10)
-		{
-			std::cout << "Veuillez renseigner 10 chiffres" << std::endl;
-			isdigit = false;
-		}
 		while(i < (int)input.length() || !isdigit)
 		{
 			if (!std::isdigit(input[i++]))
@@ -60,22 +53,23 @@ std::string	Contact::getinputnum()
 
 void	Contact::setindex(int i)
 {
-	this->index = i;
+	this->_index = i;
 }
 
 
-void	Contact::setall()
+void	Contact::setall(void)
 {
 	std::cout << "veuillez mettre le prenom :\n";
-	this->prenom = this->getinput();
+	this->_prenom = this->getinput();
 	std::cout << "veuillez mettre le nom de famille :\n";
-	this->nomDeFamille = this->getinput();
+	this->_nomDeFamille = this->getinput();
 	std::cout << "veuillez mettre le surnom :\n";
-	this->surnom = this->getinput();
+	this->_surnom = this->getinput();
 	std::cout << "veuillez mettre le numero seulement des chiffres :\n";
-	this->numero = this->getinputnum();
+	this->_numero = this->getinputnum();
+	std::cout << this->_numero;
 	std::cout << "veuillez mettre son son secret le plus " << Darkblack << "darky" << resetcolor << " :\n";
-	this->dark = this->getinput();
+	this->_dark = this->getinput();
 }
 
 std::string	Contact::printdot(std::string str)
@@ -87,18 +81,19 @@ std::string	Contact::printdot(std::string str)
 
 void	Contact::print(void)
 {
-	std::cout << "|" << std::setw(10) << this->index;
-	std::cout << "|" << std::setw(10) << this->printdot(this->prenom);
-	std::cout << "|" << std::setw(10) << this->printdot(this->nomDeFamille);
-	std::cout << "|" << std::setw(10) << this->printdot(this->surnom) << "|" << std::endl;
+	std::cout << "|" << std::setw(10) << this->_index;
+	std::cout << "|" << std::setw(10) << this->printdot(this->_prenom);
+	std::cout << "|" << std::setw(10) << this->printdot(this->_nomDeFamille);
+	std::cout << "|" << std::setw(10) << this->printdot(this->_surnom) << "|" << std::endl;
 }
 
-void	Contact::printindex()
+void	Contact::printindex(void)
 {
-	std::cout << "Index: " << this->index << std::endl;
-	std::cout << "Prenom: " << this->prenom << std::endl;
-	std::cout << "NomDeFamille: " << this->nomDeFamille << std::endl;
-	std::cout << "Surnom" << this->surnom << std::endl;
-	std::cout << "Numero: " << this->index << std::endl;
-	std::cout << "Secret trop dark: " << this->prenom << std::endl;
+	std::cout << "Index: " << this->_index << std::endl;
+	std::cout << "Prenom: " << this->_prenom << std::endl;
+	std::cout << "NomDeFamille: " << this->_nomDeFamille << std::endl;
+	std::cout << "Surnom: " << this->_surnom << std::endl;
+	std::cout << "Numero: " << this->_index << std::endl;
+	std::cout << "Secret trop dark: " << this->_prenom << std::endl;
+	std::cin.ignore();
 }

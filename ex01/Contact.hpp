@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:04:55 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/07 16:21:02 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/08 13:18:05 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,26 @@
 
 # include <iostream>
 # include <iomanip>
+# include <cctype>
+# include <algorithm>
 
 class Contact
 {
 	private:
-		int				index;
-		std::string		prenom;
-		std::string		nomDeFamille;
-		std::string		surnom;
-		std::string		numero;
-		std::string		dark;
+		int				_index;
+		std::string		_prenom;
+		std::string		_nomDeFamille;
+		std::string		_surnom;
+		std::string		_numero;
+		std::string		_dark;
 	public:
-		void			setall();
-		std::string		getinput();
-		std::string		getinputnum();
+		void			setall(void);
+		std::string		getinput(void);
+		std::string		getinputnum(void);
 		void			setindex(int i);
 		std::string		printdot(std::string str);
-		void			print();
-		void			printindex();
+		void			print(void);
+		void			printindex(void);
 
 };
 

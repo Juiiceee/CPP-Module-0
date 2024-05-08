@@ -3,9 +3,7 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-using namespace std;
-
-int main()
+int main(void)
 {
 	int	i = 0;
 	PhoneBook phone;
@@ -16,15 +14,14 @@ int main()
 		std::getline(std::cin, str);
 		while (str != "ADD" && str != "SEARCH" && str != "EXIT")
 		{
+			str = "";
 			std::cout << "Veuillez a rentrer dans un des cas" << std::endl;
-			std::cin >> str;
+			std::getline(std::cin, str);
 		}
 		if (str == "ADD")
 			i = phone.setcontact();
 		else if (str == "SEARCH")
-		{
 			phone.tab(i);
-		}
 		else if (str == "EXIT")
 			exit(0);
 		str = "";

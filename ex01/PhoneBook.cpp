@@ -15,7 +15,7 @@ int	ft_stoi(std::string str)
 	return (num);
 }
 
-void	PhoneBook::lob()
+void	PhoneBook::lob(void)
 {
 	std::cout << "Hello," << std::endl;
 	std::cout << "les commandes sont :" << std::endl;
@@ -24,7 +24,7 @@ void	PhoneBook::lob()
 	std::cout << Red << "EXIT " << resetcolor << "\t: quitter l'annuaire" << std::endl;
 }
 
-int	PhoneBook::setcontact()
+int	PhoneBook::setcontact(void)
 {
 	static int	i = 0;
 
@@ -35,8 +35,8 @@ int	PhoneBook::setcontact()
 
 void	PhoneBook::tab(int i)
 {
-	std::string str;
-	int num;
+	std::string	str;
+	int			num;
 
 	if (i > 7)
 		i = 7;
@@ -46,12 +46,12 @@ void	PhoneBook::tab(int i)
 	std::cout << "|" << std::setw(10) << "Last name";
 	std::cout << "|" << std::setw(10) << "Nickname" << "|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
-	for (int j = 0; j < i + 1; j++)
+	for (int j = 0; j < i; j++)
 		this->repertoire[j].print();
-	std::cout << "veuillez renseigner l'index que vous voulez afficher\n";
-	std::cin >> str;
+	std::cout << "Veuillez renseigner l'index que vous voulez afficher ou si vous voulez retourner au debut tapez \"-1\" :\n";
+	std::getline(std::cin, str);
 	num = ft_stoi(str);
-	if (num > i || num == -1)
+	if (num >= i || num == -1)
 	{
 		std::cout << "Il faut renseigner un nombre qui existe/qui existe dans la liste\n";
 		return ;

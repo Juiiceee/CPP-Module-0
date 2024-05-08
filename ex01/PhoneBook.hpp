@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:56:51 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/07 15:16:28 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/08 13:18:39 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class PhoneBook
 	private:
 		Contact	repertoire[8];
 	public:
-		int		setcontact();
-		void	lob();
+		int		setcontact(void);
+		void	lob(void);
 		void	tab(int i);
 
 };
