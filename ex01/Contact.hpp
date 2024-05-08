@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:04:55 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/08 13:18:05 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/08 17:10:44 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # define Darkblack "\033[2;30m"
 
 # include <iostream>
+# include <string>
 # include <iomanip>
-# include <cctype>
-# include <algorithm>
+# include <stdio.h>
 
 class Contact
 {

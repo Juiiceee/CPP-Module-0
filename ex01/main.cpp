@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+# include <stdio.h>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -12,11 +13,21 @@ int main(void)
 	{
 		phone.lob();
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+		{
+			std::cin.clear();
+			clearerr(stdin);
+		}
 		while (str != "ADD" && str != "SEARCH" && str != "EXIT")
 		{
-			str = "";
-			std::cout << "Veuillez a rentrer dans un des cas" << std::endl;
+			str.clear();
+			std::cerr << "Veuillez a rentrer dans un des cas" << std::endl;
 			std::getline(std::cin, str);
+			if (std::cin.eof())
+			{
+				std::cin.clear();
+				clearerr(stdin);
+			}
 		}
 		if (str == "ADD")
 			i = phone.setcontact();
@@ -24,7 +35,7 @@ int main(void)
 			phone.tab(i);
 		else if (str == "EXIT")
 			exit(0);
-		str = "";
+		str.clear();
 	}
 	return (0);
 }

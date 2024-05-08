@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:58:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/08 13:40:54 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/08 17:32:34 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ std::string	Contact::getinput(void)
 	{
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-			return (std::cin.clear(), "");
+			return (std::cin.clear(), clearerr(stdin), "");
 	}
 	while (input.empty());
 	return (input);
@@ -36,12 +36,12 @@ std::string	Contact::getinputnum(void)
 		isdigit = true;
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-			return (std::cin.clear(), "");
+			return (std::cin.clear(), clearerr(stdin), "");
 		while(i < (int)input.length() || !isdigit)
 		{
 			if (!std::isdigit(input[i++]))
 			{
-				std::cout << "Veuillez renseigner que des chiffres" << std::endl;
+				std::cerr << "Veuillez renseigner que des chiffres" << std::endl;
 				isdigit = false;
 				break ;
 			}
@@ -67,7 +67,6 @@ void	Contact::setall(void)
 	this->_surnom = this->getinput();
 	std::cout << "veuillez mettre le numero seulement des chiffres :\n";
 	this->_numero = this->getinputnum();
-	std::cout << this->_numero;
 	std::cout << "veuillez mettre son son secret le plus " << Darkblack << "darky" << resetcolor << " :\n";
 	this->_dark = this->getinput();
 }
@@ -93,7 +92,8 @@ void	Contact::printindex(void)
 	std::cout << "Prenom: " << this->_prenom << std::endl;
 	std::cout << "NomDeFamille: " << this->_nomDeFamille << std::endl;
 	std::cout << "Surnom: " << this->_surnom << std::endl;
-	std::cout << "Numero: " << this->_index << std::endl;
-	std::cout << "Secret trop dark: " << this->_prenom << std::endl;
+	std::cout << "Numero: " << this->_numero << std::endl;
+	std::cout << "Secret trop dark: " << this->_dark << std::endl;
+	std::cout << "Veuillez appuyer sur nimporte quelles touches pour avancer\n";
 	std::cin.ignore();
 }

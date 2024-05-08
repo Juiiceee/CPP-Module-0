@@ -4,6 +4,8 @@ int	ft_stoi(std::string str)
 {
 	int i = 0;
 	long long int num = 0;
+	if (str[0] == '-')
+		return (-2);
 	if (str.empty() || !isdigit(str[i]))
 		return (-1);
 	while (isdigit(str[i]) && str[i])
@@ -17,7 +19,7 @@ int	ft_stoi(std::string str)
 
 void	PhoneBook::lob(void)
 {
-	std::cout << "Hello," << std::endl;
+	std::cout << "\nHello," << std::endl;
 	std::cout << "les commandes sont :" << std::endl;
 	std::cout << Red << "ADD " << resetcolor << "\t: enregistrer un nouveau contact" << std::endl;
 	std::cout << Red << "SEARCH " << resetcolor << "\t: afficher le contact demandé" << std::endl;
@@ -29,7 +31,7 @@ int	PhoneBook::setcontact(void)
 	static int	i = 0;
 
 	this->repertoire[i % 8].setall();
-	this->repertoire[i % 8].setindex(i);
+	this->repertoire[i % 8].setindex(i % 8);
 	return (++i);
 }
 
@@ -38,8 +40,8 @@ void	PhoneBook::tab(int i)
 	std::string	str;
 	int			num;
 
-	if (i > 7)
-		i = 7;
+	if (i > 8)
+		i = 8;
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|" << std::setw(10) << "Index";
 	std::cout << "|" << std::setw(10) << "First name";
@@ -48,12 +50,16 @@ void	PhoneBook::tab(int i)
 	std::cout << "---------------------------------------------" << std::endl;
 	for (int j = 0; j < i; j++)
 		this->repertoire[j].print();
-	std::cout << "Veuillez renseigner l'index que vous voulez afficher ou si vous voulez retourner au debut tapez \"-1\" :\n";
+	std::cout << "Veuillez renseigner l'index que vous voulez afficher ou si vous voulez retourner au debut tapez \"-\" :\n";
 	std::getline(std::cin, str);
+	if (std::cin.eof())
+		return (std::cin.clear(), clearerr(stdin));
 	num = ft_stoi(str);
+	if (num == -2)
+		return ;
 	if (num >= i || num == -1)
 	{
-		std::cout << "Il faut renseigner un nombre qui existe/qui existe dans la liste\n";
+		std::cerr << "Il faut renseigner un nombre qui existe/qui existe dans la liste\n";
 		return ;
 	}
 	this->repertoire[num].printindex();

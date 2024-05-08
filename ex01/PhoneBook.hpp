@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:56:51 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/08 13:18:39 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/08 16:45:12 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
+# include <iostream>
+# include <string>
 
 class PhoneBook
 {
