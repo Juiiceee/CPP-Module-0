@@ -21,7 +21,7 @@ int main(void)
 		while (str != "ADD" && str != "SEARCH" && str != "EXIT")
 		{
 			str.clear();
-			std::cerr << "Veuillez a rentrer dans un des cas" << std::endl;
+			std::cerr << "Veuillez rentrer dans un des cas" << std::endl;
 			std::getline(std::cin, str);
 			if (std::cin.eof())
 			{

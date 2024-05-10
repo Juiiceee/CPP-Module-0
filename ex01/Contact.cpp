@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:58:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/10 11:49:16 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/10 17:50:07 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,32 @@ Contact::~Contact()
 std::string	Contact::getinput(void)
 {
 	std::string input;
+	int			i;
+	bool		isdigit;
+
 	do
 	{
+		i = 0;
+		isdigit = true;
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-			return (std::cin.clear(), clearerr(stdin), "");
+		{
+			std::cin.clear();
+			clearerr(stdin);
+		}
+		int j = (int)input.length();
+		(void)j;
+		while(i < (int)input.length() || !isdigit)
+		{
+			if (!std::isprint(input[i++]))
+			{
+				std::cerr << "Veuillez renseigner que des caracteres printables" << std::endl;
+				isdigit = false;
+				break ;
+			}
+		}
 	}
-	while (input.empty());
+	while (input.empty() || !isdigit);
 	return (input);
 }
 
@@ -47,7 +66,10 @@ std::string	Contact::getinputnum(void)
 		isdigit = true;
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-			return (std::cin.clear(), clearerr(stdin), "");
+		{
+			std::cin.clear();
+			clearerr(stdin);
+		}
 		while(i < (int)input.length() || !isdigit)
 		{
 			if (!std::isdigit(input[i++]))
