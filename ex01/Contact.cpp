@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:58:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/05/08 17:45:27 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/05/10 11:49:16 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ std::string	Contact::getinputnum(void)
 
 	do
 	{
+		i = 0;
 		isdigit = true;
 		std::getline(std::cin, input);
 		if (std::cin.eof())

@@ -1,8 +1,11 @@
 # Prerequisites
 *.d
 oui
+19920104_091532.log
 test.cpp
 annuaire
+ex02
+megaphone
 .vscode
 # Compiled Object files
 *.slo
