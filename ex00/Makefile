@@ -6,7 +6,7 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 12:22:14 by lbehr             #+#    #+#              #
-#    Updated: 2023/12/20 13:37:10 by lbehr            ###   ########.fr        #
+#    Updated: 2024/05/10 11:59:30 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,16 @@ CC		:= c++
 CFLAGS	:= -Wall -Werror -Wextra -std=c++98 -g3
 RM		:= rm -rf
 
-all		: $(NAME)
+all		:	$(NAME)
 
-$(NAME)	: $(SRCS)
+$(NAME)	:	$(SRCS)
 	$(CC) $< $(CFLAGS) -o $(NAME)
 
 clean	:
 	$(RM) $(NAME)
 
-re		:	clean all
+fclean	:	clean
 
-.PHONY: all clean re
+re		:	fclean all
+
+.PHONY: all fclean clean re
